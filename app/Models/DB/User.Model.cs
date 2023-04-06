@@ -10,9 +10,9 @@ namespace api.cloneyoutube.Model
         [Column("ID")]
         public int Id { get; set; }
         [Column("EMAIL")]
-        public string Email { get; set; }
+        public string Email { get; set; } = String.Empty;
 
         [Column("CLAVE")]
-        public string Clave { get; set; }
+        public string Clave { get; set; } = String.Empty;
     }
 }

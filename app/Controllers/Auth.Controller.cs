@@ -1,3 +1,5 @@
+using api.cloneyoutube.AuthControllerModel;
+using api.cloneyoutube.InterfaceRepository;
 using api.cloneyoutube.Model;
 using Microsoft.AspNetCore.Mvc;
 namespace api.cloneyoutube.Controllers;
@@ -6,26 +8,18 @@ namespace api.cloneyoutube.Controllers;
 
 public class AuthController : ControllerBase
 {
-
-    private readonly DBContextApp dbContext;
-    public AuthController(DBContextApp dbContextApp)
+    private readonly IAuthService authService;
+    public AuthController(IAuthService authService)
     {
-        dbContext = dbContextApp;
+        this.authService = authService;
     }
 
     [HttpPost]
     [Route("login")]
-    public IActionResult login([FromBody] object data)
+    public IActionResult login([FromBody] Login dataB)
     {
-        Console.WriteLine(data);
-
-        dbContext.Users.ToList();
-        Console.WriteLine(dbContext.Users.ToList().ToString());
-        return Ok(new
-        {
-
-            data = dbContext.Users.ToList()
-        });
+        UserModel? data = this.authService.login(dataB.email, dataB.clave);
+        return data != null ? Ok(data) : StatusCode(401, "Fail Session");
     }
 
 

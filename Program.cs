@@ -1,4 +1,7 @@
+using api.cloneyoutube.InterfaceRepository;
 using api.cloneyoutube.Model;
+using api.cloneyoutube.Repository;
+using api.cloneyoutube.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DBContextApp>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 var app = builder.Build();
 
