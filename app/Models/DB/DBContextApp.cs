@@ -1,12 +1,15 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using api.cloneyoutube.Entity;
 
 namespace api.cloneyoutube.Model
 {
     public class DBContextApp : DbContext
     {
 
-        public DbSet<UserModel> Users { get; set; }
+        public DbSet<UserEntity> User { get; set; }
+        public DbSet<VideoEntity> Video { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

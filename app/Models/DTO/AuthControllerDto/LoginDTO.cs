@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace api.cloneyoutube.AuthControllerModel
 {
-    public class Login
+    public class LoginDTO
     {
         [Required]
         public string email { get; set; } = String.Empty;

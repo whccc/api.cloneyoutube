@@ -2,9 +2,9 @@ using api.cloneyoutube.Entity;
 
 namespace api.cloneyoutube.InterfaceRepository
 {
-    public interface IAuthRepository
+    public interface IUserRepository
     {
-        UserEntity? login(string email, string clave);
-
+        public ICollection<UserEntity> getAllUsers();
     }
+
 }

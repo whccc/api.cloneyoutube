@@ -1,3 +1,4 @@
+using api.cloneyoutube.Entity;
 using api.cloneyoutube.InterfaceRepository;
 using api.cloneyoutube.Model;
 
@@ -11,9 +12,9 @@ namespace api.cloneyoutube.Services
             this.authRepository = authRepository;
         }
 
-        public UserModel? login(string email, string clave)
+        public UserEntity? login(string email, string clave)
         {
-            UserModel? data = this.authRepository.login(email, clave);
+            UserEntity? data = this.authRepository.login(email, clave);
             return data;
         }
     }

@@ -1,3 +1,4 @@
+using api.cloneyoutube.Entity;
 using api.cloneyoutube.InterfaceRepository;
 using api.cloneyoutube.Model;
 
@@ -10,10 +11,10 @@ namespace api.cloneyoutube.Repository
         {
             this.dbContext = dBContextApp;
         }
-        public UserModel? login(string email, string clave)
+        public UserEntity login(string email, string clave)
         {
-            UserModel? user = this.dbContext.Users.
-            FirstOrDefault(e => e.Email == email && e.Clave == clave);
+            UserEntity? user = this.dbContext.User.
+            FirstOrDefault(e => e.email == email && e.clave == clave);
             return user;
         }
     }
